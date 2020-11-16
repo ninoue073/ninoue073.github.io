@@ -1,0 +1,861 @@
+@charset "utf-8";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    font-family: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+
+/*ヘッダー*/
+
+header {
+    border-top: 1rem solid #86700d;
+}
+
+.header_info {
+    margin: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_info::before {
+    display: none;
+}
+
+/*ハンバーガーメニュー*/
+.tab_drawer {
+    position: absolute;
+    top: 2em;
+    right: 1em;
+    display: inline-block;
+}
+
+/* menu */
+.tab_menu {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 250px;
+    height: 100%;
+    cursor: pointer;
+    transition: .53s transform;
+    transition-timing-function: cubic-bezier(.38, .52, .23, .99);
+    background-color: #000;
+    opacity: .8;
+    z-index: 20;
+}
+
+#tab_toggle {
+    position: absolute;
+    display: none;
+    opacity: 0;
+}
+
+#tab_toggle:checked ~ .tab_menu {
+    transform: translateX(-100vw);
+}
+
+/* menu toggle */
+#tab_toggle ~ label {
+    display: block;
+    padding: .5em 0;
+    cursor: pointer;
+    transition: .5s transform;
+    transition-timing-function: cubic-bezier(.61, -0.38, .37, 1.27);
+    text-align: center;
+    color: #3c3101;
+}
+
+#tab_toggle:checked ~ label {
+    transform: translateX(-240px);
+}
+
+#tab_toggle ~ label::before {
+    font-family: 'FontAwesome';
+    content: '\f0c9';
+    font-size: 2em;
+}
+
+#tab_toggle:checked ~ label::before {
+    content: '\f00d';
+    transform: translateX(200px);
+    background: rgba(255, 255, 255, .7);
+    padding: .2em;
+}
+
+.info_ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_li {
+    border-bottom: thin solid #2b2b2b;
+    width: 250px;
+    margin-left: 0;
+}
+
+.info_li a {
+    background-color: transparent;
+    color: #fff;
+    text-align: left;
+    border-radius: 0;
+    padding: 20px;
+}
+
+.info_li a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.drawer_ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer_li {
+    border-bottom: thin solid #2b2b2b;
+    width: 250px;
+    margin-left: 0;
+}
+
+.drawer_li a {
+    color: #fff;
+    display: block;
+    padding: 20px;
+}
+
+.drawer_li a:hover {
+    color: #fff;
+}
+
+#top_ttl {
+    display: block;
+    margin: 0;
+    max-width: width: 60%;
+}
+
+/*ナビの設定*/
+.gnav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.gnav li {
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.gnav a {
+    display: block;
+    text-decoration: none;
+    color: #86700d;
+    transition: all .2s ease-out;
+    font-size: 1.5em;
+    letter-spacing: .1em;
+}
+
+.gnav a:hover {
+    color: #3c3101;
+}
+
+.current a {
+    color: #3c3101;
+    border-bottom: 1px solid #3c3101;
+}
+
+.tab_hidden {
+    display: none;
+}
+
+/*フッター*/
+
+footer {
+    border-top: 1px solid #86700d;
+}
+
+.footer_inner {
+    width: 80%;
+    margin: 1em 2em;
+    display: block;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.footer_inner img {
+    display: none;
+}
+
+.footer_inner ul {
+    margin: 0;
+}
+
+.footer_inner li {
+    line-height: 1.5em;
+}
+
+.footer_menu {
+    max-width: 20em;
+}
+
+.footer_info {
+    max-width: 20em;
+}
+
+.footer_inner a,
+#contact {
+    text-decoration: none;
+    color: #86700d;
+    transition: all .2s ease-out;
+    font-size: 1em;
+}
+
+.footer_inner a:hover {
+    color: #86700d;
+}
+
+#contact_ul {
+    display: none;
+}
+
+.footer_policy ul {
+    display: block;
+    justify-content: flex-start;
+    margin: 0 2em;
+    position: relative;
+}
+
+.footer_policy li {
+    margin: 0;
+    line-height: 1.5em;
+}
+
+.footer_policy a {
+    text-decoration: none;
+    color: #86700d;
+    transition: all .2s ease-out;
+    font-size: 1em;
+}
+
+.footer_policy a:hover {
+    color: #86700d;
+}
+
+.logo_maker {
+    color: #86700d;
+    text-align: right;
+    padding-top: 30px;
+}
+
+.logo_maker a {
+    color: #86700d;
+    font-size: 1em;
+}
+
+/*aのhover取り消し*/
+.logo_maker a:hover {
+    color: #86700d;
+}
+
+.end_title {
+    text-align: center;
+    background-color: #86700d;
+}
+
+small a {
+    color: #fff;
+    font-size: .5em;
+}
+
+/*aのhover取り消し*/
+small a:hover {
+    color: #fff;
+}
+
+
+/*トップページ*/
+/*スライダー*/
+.top_slider {
+    margin: 0 auto;
+    max-width: 2000px;
+}
+
+/*コンテンツ*/
+section {
+    text-align: center;
+}
+
+.contents {
+    max-width: 1110px;
+    margin: 50px auto;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+}
+
+a,
+#reservation_top {
+    text-decoration: none;
+    color: #86700d;
+    transition: all .2s ease-out;
+}
+
+a:hover,
+#reservation_top:hover {
+    color: #86700d;
+}
+
+.top_group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.label_ttl {
+    text-align: left;
+    font-size: 1em;
+    display: inline-block;
+    background-color: #f0e29f;
+    padding: 0 8px;
+    box-shadow: 9px 9px 0 #bab079;
+}
+
+.three_contents {
+    width: 340px;
+    padding: 0 .5em;
+}
+
+.three_contents img:hover {
+    opacity: 1;
+}
+
+.reservation_menu {
+    position: relative;
+}
+
+.reservation_mask a {
+    color: #3c3101;
+    font-size: 2em;
+}
+
+.reservation_mask li {
+    text-align: center;
+}
+
+.reservation_mask {
+    display: none;
+}
+
+.reservation_menu:hover .reservation_mask {
+    opacity: 1;
+    padding-top: 100px;
+}
+
+.three_contents img:hover ~ .label_ttl {
+    background-color: #f0e29f;
+    box-shadow: 9px 9px 0 #bab079;
+}
+
+.reservation_mask a:hover {
+    color: #86700d;
+}
+
+.wide_ttl {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 1em;
+    letter-spacing: .1em;
+    display: flex;
+    align-items: center;
+}
+
+.wide_ttl::before,
+.wide_ttl::after {
+    border-top: 1px dashed #86700d;
+    content: "";
+    flex-grow: 1;
+}
+
+.wide_ttl::before {
+    margin-right: 2rem;
+    margin-left: .5em;
+}
+
+.wide_ttl::after {
+    margin-left: 2rem;
+    margin-right: .5em;
+}
+
+.wide_content {
+    margin-bottom: 30px;
+}
+
+.wide_content img {
+    padding: 0 .5em;
+}
+
+.wide_content img:hover {
+    opacity: 1;
+}
+
+.bottom_group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom_group img {
+    margin-top: 5px;
+}
+
+.short_ttl {
+    text-align: left;
+    font-size: 1em;
+}
+
+/*ノーマルページ*/
+
+/*別ページ案内*/
+aside {
+    max-width: 280px;
+    margin: 30px auto;
+    border-top: 1px solid #86700d;
+    padding-top: 30px;
+}
+
+.aside_content {
+    padding: 0 .2em;
+}
+
+.aside_content img {
+    width: 88px;
+}
+
+aside img {
+    width: 100%;
+}
+
+aside h2 {
+    font-size: 1em;
+    text-align: left;
+}
+
+.other_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*bridal*/
+.main_wide {
+    margin: 20px auto 0;
+    display: block;
+    max-width: 2000px;
+}
+
+.bg_wide {
+    background: linear-gradient(#261f01 0%, #a09256 100%) no-repeat 50% 50% / 100% 100%;
+    padding: 20px 0;
+}
+
+.branch {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.branch_ttl {
+    color: #fff;
+    font-size: 1em;
+}
+
+.two_content img {
+    width: 100%;
+    padding: 0 .5em;
+}
+
+.two_content img:hover {
+    opacity: .8;
+}
+
+/*engagement・marriage*/
+.item_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 320px;
+    margin: 30px auto 50px;
+}
+
+.item img {
+    width: 160px;
+    padding: .5em;
+}
+
+.item_wrap::after {
+    display: block;
+    content: "";
+    width: 160px;
+    padding: .5em;
+}
+
+.item img:hover {
+    opacity: .8;
+}
+
+/*商品詳細*/
+.back {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.details {
+    max-width: 320px;
+    margin: 10px auto 0;
+    display: block;
+    justify-content: space-between;
+}
+
+.details img {
+    width: 320px;
+    height: 320px;
+}
+
+.txt_engagement,
+.txt_marriage {
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.details_ttl {
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+.details_txt {
+    margin: 0 auto;
+}
+
+.gender {
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.price {
+    font-size: 1em;
+}
+
+.txt_engagement .price {
+    margin: 15px 0 3px;
+}
+
+.item_num {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.txt_marriage .item_num {
+    margin-bottom: 20px;
+}
+
+/*online shop＆来店予約ボタン*/
+.info_btn li {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin-top: 3px;
+}
+
+.btn a {
+    background-color: #c4b677;
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 3px;
+    width: 300px;
+    height: 30px;
+    transition: all .2s ease-out;
+    margin: 0 auto;
+}
+
+.btn a:hover {
+    background-color: #504d3c;
+}
+
+.other_details {
+    display: block;
+    justify-content: space-between;
+    max-width: 320px;
+    margin: 20px auto;
+}
+
+.sidebar,
+.spec {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.other_details h3 {
+    font-size: 1em;
+    font-weight: 800;
+}
+
+.other_details p {
+    font-size: 1em;
+}
+
+/*company*/
+.ttl {
+    font-size: 1.5em;
+    font-weight: 200;
+    color: #86700d;
+    text-align: center;
+    padding: 20px;
+}
+
+.company {
+    color: #897e4a;
+    max-width: 320px;
+    margin: 0 auto 100px;
+}
+
+
+/*枠線*/
+.company th,
+td {
+    border-top: 1px solid #86700d;
+    border-bottom: 1px solid #86700d;
+    padding: 10px;
+}
+
+.company th {
+    background: #f4eabc;
+}
+
+/*store list*/
+.ttl + img {
+    margin: 0 auto;
+}
+
+/*地図*/
+.map {
+    margin: 20px 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*店舗一覧の全体*/
+.store_list {
+    max-width: 320px;
+    margin: 0 auto 100px;
+}
+
+.store_name {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #574803;
+}
+
+/*詳細を表示 */
+.store_box *,
+.store_box *:before,
+.store_box *:after {
+    box-sizing: border-box;
+}
+
+.store_box {
+    position: relative;
+    padding-top: 50px;
+}
+
+/*グラデーション*/
+.store_box label {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(rgba(255, 254, 248, 0) 0%, #FFFFFF 100%) no-repeat 50% 50% / 100% 100%;
+}
+
+/* 開いた時にグラデーションを消す */
+.store_box input:checked + label {
+    background: inherit;
+}
+
+.store_box input {
+    display: none;
+}
+
+/*一部表示中の店舗情報*/
+.store_content {
+    overflow: hidden;
+    height: 100px;
+    transition: all 1s;
+    color: #86700d;
+}
+
+.store_content p {
+    margin: 10px;
+}
+
+/* 続きを読むボタン */
+.store_box label::after {
+    position: absolute;
+    display: block;
+    line-height: 2.5rem;
+    z-index: 2;
+    bottom: 10px;
+    left: 25%;
+    width: 16rem;
+    content: '\f107'' 続きをよむ';
+    font-family: "Font Awesome 5 Free", '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+    font-weight: 900;
+    letter-spacing: .05em;
+    color: #fff;
+    border-radius: 8px;
+    background-color: #86700d;
+}
+
+/*クリック後のボタン*/
+.store_box input:checked + label::after {
+    content: '\f106'' 閉じる';
+    background-color: #f0e29f;
+    color: #86700d;
+}
+
+.store_box input:checked ~ .store_content {
+    height: auto;
+    padding-bottom: 30px;
+    transition: all 1s;
+}
+
+.reservation_open {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #86700d;
+}
+
+.reservation_open a {
+    padding: 5px;
+}
+
+/*contact*/
+.contact {
+    margin: 50px auto;
+    position: relative;
+    padding-bottom: 1700px;
+}
+
+.contact iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*reservation*/
+.rsv_branch {
+    margin: 100px auto;
+    position: relative;
+    max-width: 320px;
+}
+
+.rsv_inner {
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    border-top: 1px solid #86700d;
+}
+
+.rsv_inner img {
+    display: none;
+}
+
+.rsv_txt {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+}
+
+.ttl_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rsv_ttl {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #574803;
+}
+
+.rsv_btn {
+    padding: 6px;
+    background-color: #574803;
+    border-radius: 8px;
+    color: #fff;
+    transition: all .2s ease-out;
+}
+
+.rsv_btn:hover {
+    background-color: #f0e29f;
+    color: #86700d;
+}
+
+.rsv_txt p {
+    padding: 20px 5px;
+}
+
+/*店舗ごと*/
+.reservation {
+    margin: 50px auto;
+    position: relative;
+    padding-bottom: 1900px;
+}
+
+.rsv_back {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.reservation iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
